@@ -1,18 +1,51 @@
-# Miami-real-estate
-SQL queries analyzing property prices and trends in Miami using a real estate dataset.
+# Miami Real Estate SQL Analysis
 
--- Miami Real Estate Project - SQL Queries
+This project explores housing trends across Miami using SQL. The dataset includes listings with details such as price, square footage, number of bedrooms and bathrooms, and zip codes. The goal was to uncover pricing patterns, housing availability, and cost efficiency across different neighborhoods.
 
--- 1. Total number of rows in the dataset
-SELECT COUNT(*) AS total_rows
-FROM real_estate;
+## 📊 Dataset Overview
 
--- 2. Number of listings per status
+The dataset contains real estate listings in Miami, including:
+- `listing_price_usd`
+- `price_per_sqft`
+- `bed`, `bath`
+- `zip_code`
+- `status` (e.g., "for_sale", "ready_to_build")
+
+The data was tested and queried using DB Fiddle (MySQL v5.7+ and v8).
+
+---
+
+## 🧠 Key Business Questions
+
+- How many properties are in the dataset, and what are their listing statuses?
+- What is the average price per square foot by zip code?
+- Which zip codes have the most listings?
+- What do listing trends look like by bedroom count?
+- How do prices vary by status and location?
+
+---
+
+## 🛠️ SQL Techniques Used
+
+- `COUNT()` and `GROUP BY` for counts by status, bedrooms, and zip codes
+- `AVG()` and `ROUND()` for pricing summaries
+- `WHERE` filters to isolate property features (e.g., 3+ beds under $250/sqft)
+- `ORDER BY` for ranking listings by cost metrics
+- Combined filters for targeted neighborhood insights
+---
+
+## 📌 Queries Used
+
+```sql
+-- Count total rows in the dataset
+SELECT COUNT(*) AS total_rows FROM real_estate;
+
+-- Count listings by status
 SELECT status, COUNT(*) AS listing_count
 FROM real_estate
 GROUP BY status;
 
--- 3. Number of listings and average listing price by zip code
+-- Average listing price by zip code
 SELECT zip_code,
        COUNT(*) AS listings,
        ROUND(AVG(listing_price_usd), 0) AS avg_price
@@ -20,39 +53,10 @@ FROM real_estate
 GROUP BY zip_code
 ORDER BY avg_price DESC;
 
--- 4. Number of listings and average price per square foot by zip code
+-- Average price per sqft by zip code
 SELECT zip_code,
        ROUND(AVG(price_per_sqft), 2) AS avg_price_per_sqft,
        COUNT(*) AS listings
 FROM real_estate
 GROUP BY zip_code
 ORDER BY avg_price_per_sqft ASC;
-
--- 5. Filter: 3+ bedroom homes under $250/sqft, sorted by price per sqft
-SELECT zip_code, listing_price_usd, price_per_sqft, bed, bath
-FROM real_estate
-WHERE bed >= 3
-  AND price_per_sqft <= 250
-ORDER BY price_per_sqft ASC;
-
--- 6. Add status filter: for_sale only
-SELECT zip_code, listing_price_usd, price_per_sqft, bed, bath
-FROM real_estate
-WHERE bed >= 3
-  AND price_per_sqft <= 250
-  AND status = 'for_sale'
-ORDER BY price_per_sqft ASC;
-
--- 7. Group by zip code and status to analyze listing types by location
-SELECT zip_code, status, COUNT(*) AS listing_count
-FROM real_estate
-GROUP BY zip_code, status
-ORDER BY zip_code, status;
-
--- 8. Listings and average price by bedroom count
-SELECT bed,
-       COUNT(*) AS listings,
-       ROUND(AVG(listing_price_usd), 0) AS avg_price
-FROM real_estate
-GROUP BY bed
-ORDER BY bed;
