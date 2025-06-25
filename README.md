@@ -60,3 +60,7 @@ SELECT zip_code,
 FROM real_estate
 GROUP BY zip_code
 ORDER BY avg_price_per_sqft ASC;
+
+## 📊 Tableau Dashboard
+[🔗 View the Dashboard on Tableau Public] (https://public.tableau.com/app/profile/brayan.altamirano/viz/MiamiDatasetDashboard2WorkinProgress/Dashboard1)
+(https://public.tableau.com/app/profile/brayan.altamirano/viz/MiamiPriceSegmentation/Dashboard4) 
