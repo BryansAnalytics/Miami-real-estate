@@ -64,3 +64,7 @@ ORDER BY avg_price_per_sqft ASC;
 ## 📊 Tableau Dashboard
 [🔗 View the Dashboard on Tableau Public] (https://public.tableau.com/app/profile/brayan.altamirano/viz/MiamiDatasetDashboard2WorkinProgress/Dashboard1)
 (https://public.tableau.com/app/profile/brayan.altamirano/viz/MiamiPriceSegmentation/Dashboard4) 
+
+### 📁 Dataset
+[Download the Miami Real Estate Dataset (Excel)](Miami.csv)
+
