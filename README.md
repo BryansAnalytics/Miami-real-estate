@@ -1,8 +1,14 @@
-# Miami Real Estate SQL Analysis
+# Miami Real Estate Analysis
 
+## 📌 Overview
 This project explores housing trends across Miami using SQL. The dataset includes listings with details such as price, square footage, number of bedrooms and bathrooms, and zip codes. The goal was to uncover pricing patterns, housing availability, and cost efficiency across different neighborhoods.
 
-## 📊 Dataset Overview
+## 🧰 Tools Used
+- **MySQL** via DB Fiddle
+- **Excel** (data cleaning – sample file included)
+- **Tableau** (dashboard to be added)
+
+## 📂 Dataset Structure
 
 The dataset contains real estate listings in Miami, including:
 - `listing_price_usd`
@@ -13,9 +19,7 @@ The dataset contains real estate listings in Miami, including:
 
 The data was tested and queried using DB Fiddle (MySQL v5.7+ and v8).
 
----
-
-## 🧠 Key Business Questions
+## 📊 Key Business Questions
 
 - How many properties are in the dataset, and what are their listing statuses?
 - What is the average price per square foot by zip code?
@@ -23,18 +27,7 @@ The data was tested and queried using DB Fiddle (MySQL v5.7+ and v8).
 - What do listing trends look like by bedroom count?
 - How do prices vary by status and location?
 
----
-
-## 🛠️ SQL Techniques Used
-
-- `COUNT()` and `GROUP BY` for counts by status, bedrooms, and zip codes
-- `AVG()` and `ROUND()` for pricing summaries
-- `WHERE` filters to isolate property features (e.g., 3+ beds under $250/sqft)
-- `ORDER BY` for ranking listings by cost metrics
-- Combined filters for targeted neighborhood insights
----
-
-## 📌 Queries Used
+## 📌  Key Queries & Insights
 
 ```sql
 -- Count total rows in the dataset
@@ -61,6 +54,21 @@ FROM real_estate
 GROUP BY zip_code
 ORDER BY avg_price_per_sqft ASC;
 ```
+## Project Summary
+
+This dashboard analyzes Miami residential real estate listings to uncover trends in pricing, location value, and market dynamics. Built in Tableau using a cleaned Excel dataset.
+
+### Key KPIs:
+- Avg. Listing Price: **$899,425**
+- Avg. Home Size: **1,634 sqft**
+- Avg. Price per Sqft: **$498**
+
+### Key Insights:
+- 📍 **33109** stands out with an average listing price over **$8.5M**, indicating a luxury cluster.
+- 📊 **Scatter plot** reveals a general price-size correlation with outliers suggesting over/undervalued properties.
+- 🏷️ A large number of homes are still listed **under $500K**, showing affordability pockets.
+- 📆 Some listings haven’t sold in **10+ years**, hinting at long-held inventory or equity opportunities.
+
 ## 📊 Tableau Dashboard
 [🔗 View the Dashboard on Tableau Public] (https://public.tableau.com/app/profile/brayan.altamirano/viz/MiamiDatasetDashboard2WorkinProgress/Dashboard1)
 (https://public.tableau.com/app/profile/brayan.altamirano/viz/MiamiPriceSegmentation/Dashboard4) 
