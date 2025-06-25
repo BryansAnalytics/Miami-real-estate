@@ -24,7 +24,6 @@ The data was tested and queried using DB Fiddle (MySQL v5.7+ and v8).
 - How many properties are in the dataset, and what are their listing statuses?
 - What is the average price per square foot by zip code?
 - Which zip codes have the most listings?
-- What do listing trends look like by bedroom count?
 - How do prices vary by status and location?
 
 ## 📌  Key Queries & Insights
